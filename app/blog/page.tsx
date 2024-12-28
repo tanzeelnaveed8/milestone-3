@@ -34,29 +34,32 @@ export default function BlogPage() {
   return (
     <div className="min-h-screen bg-gradient-to-r from-[#ffffff] to-[#bee6e9]">
       <div className="max-w-4xl mx-auto py-12 px-4">
+        {/* Main Heading */}
         <div className="flex items-center gap-2 mb-8">
           <BookOpen className="w-6 h-6" />
-          <h1 className="text-3xl font-bold">Recently Blogs</h1>
+          <h1 className="text-3xl font-bold text-black">Recently Blogs</h1>
         </div>
+        {/* Blog Posts */}
         <div className="grid gap-6">
           {posts.map((post) => (
-            <Link 
-              key={post.id} 
+            <Link
+              key={post.id}
               href={`/blog/${post.slug}`}
               className="block group"
             >
               <article className="p-6 bg-card rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                {/* Blog Post Title */}
                 <h2 className="text-2xl font-semibold group-hover:text-primary transition-colors text-black">
                   {post.title}
                 </h2>
+                {/* Blog Post Meta Information */}
                 <div className="mt-2 text-sm text-black">
                   <span>{post.author}</span>
                   <span className="mx-2">•</span>
                   <time>{new Date(post.date).toLocaleDateString()}</time>
                 </div>
-                <p className="mt-3 text-black">
-                  {post.excerpt}
-                </p>
+                {/* Blog Post Excerpt */}
+                <p className="mt-3 text-black">{post.excerpt}</p>
               </article>
             </Link>
           ))}
