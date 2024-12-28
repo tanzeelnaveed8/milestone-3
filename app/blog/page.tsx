@@ -36,8 +36,8 @@ export default function BlogPage() {
       <div className="max-w-4xl mx-auto py-12 px-4">
         {/* Main Heading */}
         <div className="flex items-center gap-2 mb-8">
-          <BookOpen className="w-6 h-6" />
-          <h1 className="text-3xl font-bold text-black">Recently Blogs</h1>
+          <BookOpen className="w-6 h-6  text-black" />
+          <h1 className="text-3xl font-bold !text-black">Recently Blogs</h1>
         </div>
         {/* Blog Posts */}
         <div className="grid gap-6">
