@@ -64,15 +64,22 @@ export default function BlogPost({ params }: { params: Promise<{ slug: PostSlug 
           <div className="text-black whitespace-pre-line">{post.content}</div>
         </article>
 
-        {/* Comments Section */}
         <div className="mt-16">
           <div className="flex items-center gap-2 mb-8">
             <MessageSquare className="w-5 h-5 text-black" />
             <h2 className="text-2xl font-semibold text-black">Comments</h2>
           </div>
 
+          {/* Comment Form */}
           <CommentForm onSubmit={handleNewComment} />
-          <CommentList comments={comments} />
+
+          {/* Comment List */}
+          <CommentList
+            comments={comments.map((comment) => ({
+              ...comment,
+              contentClass: "text-black sm:text-black",
+            }))}
+          />
         </div>
       </div>
     </div>
