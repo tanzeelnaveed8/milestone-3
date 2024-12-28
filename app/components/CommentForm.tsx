@@ -1,49 +1,41 @@
-"use client";
-
 import { useState } from "react";
 
-interface CommentFormProps {
-  onSubmit: (comment: { author: string; content: string }) => void;
-}
-
-export function CommentForm({ onSubmit }: CommentFormProps) {
-  const [newComment, setNewComment] = useState({ author: "", content: "" });
+export function CommentForm({ onSubmit }: { onSubmit: (comment: { author: string; content: string }) => void }) {
+  const [author, setAuthor] = useState("");
+  const [content, setContent] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (newComment.author.trim() && newComment.content.trim()) {
-      onSubmit(newComment);
-      setNewComment({ author: "", content: "" });
+    if (author && content) {
+      onSubmit({ author, content });
+      setContent(""); // Clear the content after submission
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mb-8">
-      <div className="mb-4">
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <div>
+        <label htmlFor="author" className="block text-sm font-medium text-black">Your Name</label>
         <input
           type="text"
+          id="author"
+          value={author}
+          onChange={(e) => setAuthor(e.target.value)}
+          className="w-full p-3 border border-gray-300 rounded-md text-black"
           placeholder="Your name"
-          value={newComment.author}
-          onChange={(e) => setNewComment({ ...newComment, author: e.target.value })}
-          className="w-full p-2 rounded-md border border-input bg-background"
-          required
         />
       </div>
-      <div className="mb-4">
+      <div>
+        <label htmlFor="content" className="block text-sm font-medium text-black">Comment</label>
         <textarea
-          placeholder="Write a comment..."
-          value={newComment.content}
-          onChange={(e) => setNewComment({ ...newComment, content: e.target.value })}
-          className="w-full p-2 rounded-md border border-input bg-background min-h-[100px]"
-          required
+          id="content"
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+          className="w-full p-3 border border-gray-300 rounded-md text-black"
+          placeholder="Write a comment"
         />
       </div>
-      <button
-        type="submit"
-        className="px-4 py-2 bg-primary text-primary-foreground rounded-md hover:opacity-90 transition-opacity"
-      >
-        Post Comment
-      </button>
+      <button type="submit" className="px-6 py-2 bg-primary text-white rounded-md">Post Comment</button>
     </form>
   );
 }
