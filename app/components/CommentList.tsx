@@ -19,12 +19,12 @@ export function CommentList({ comments }: { comments: Comment[] }) {
       {comments.map((comment) => (
         <div key={comment.id} className="p-4 rounded-lg bg-card">
           <div className="flex justify-between items-start mb-2">
-            <span className="font-semibold">{comment.author}</span>
+            <span className="font-semibold text-black">{comment.author}</span>
             <time className="text-sm text-muted-foreground">
               {new Date(comment.date).toLocaleDateString()}
             </time>
           </div>
-          <p className="text-foreground/80">{comment.content}</p>
+          <p className="text-black">{comment.content}</p> {/* Ensuring text is black */}
         </div>
       ))}
     </div>
