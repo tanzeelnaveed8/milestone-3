@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Link from "next/link";
 import { BookOpen } from "lucide-react";
@@ -10,7 +10,7 @@ const posts = [
     excerpt: "Learn the basics of Next.js and how to create your first application.",
     date: "2024-03-20",
     author: "John Doe",
-    slug: "getting-started-with-nextjs"
+    slug: "getting-started-with-nextjs",
   },
   {
     id: 2,
@@ -18,7 +18,7 @@ const posts = [
     excerpt: "Deep dive into React Server Components and their benefits.",
     date: "2024-03-21",
     author: "Jane Smith",
-    slug: "understanding-react-server-components"
+    slug: "understanding-react-server-components",
   },
   {
     id: 3,
@@ -26,8 +26,8 @@ const posts = [
     excerpt: "Learn how to build beautiful interfaces with Tailwind CSS.",
     date: "2024-03-22",
     author: "Mike Johnson",
-    slug: "mastering-tailwind-css"
-  }
+    slug: "mastering-tailwind-css",
+  },
 ];
 
 export default function BlogPage() {
@@ -46,15 +46,15 @@ export default function BlogPage() {
               className="block group"
             >
               <article className="p-6 bg-card rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                <h2 className="text-2xl font-semibold group-hover:text-primary transition-colors">
+                <h2 className="text-2xl font-semibold group-hover:text-primary transition-colors text-black">
                   {post.title}
                 </h2>
-                <div className="mt-2 text-sm text-muted-foreground">
+                <div className="mt-2 text-sm text-black">
                   <span>{post.author}</span>
                   <span className="mx-2">•</span>
                   <time>{new Date(post.date).toLocaleDateString()}</time>
                 </div>
-                <p className="mt-3 text-foreground/80">
+                <p className="mt-3 text-black">
                   {post.excerpt}
                 </p>
               </article>
