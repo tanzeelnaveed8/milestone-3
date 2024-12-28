@@ -35,7 +35,7 @@ export function CommentForm({ onSubmit }: { onSubmit: (comment: { author: string
           placeholder="Write a comment"
         />
       </div>
-      <button type="submit" className="px-6 py-2 bg-primary text-white rounded-md">Post Comment</button>
+      <button type="submit" className="px-6 py-2 bg-primary text-black rounded-md">Post Comment</button>
     </form>
   );
 }
