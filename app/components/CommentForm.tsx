@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 
 export function CommentForm({ onSubmit }: { onSubmit: (comment: { author: string; content: string }) => void }) {
